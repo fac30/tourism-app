@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Map</title>
+    <title>UK Tourist Journey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
+
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="jumbotron">
         <div class="container-fluid">
-            <h1>Find The Distance Between Two Places.</h1>
+            <h1>UK Tourist Journey</h1>
             <p>This App Will Help You Calculate Your Travelling Distances.</p>
             <form class="form-horizontal">
                 <div class="form-group">
                     <label for="from"><i class="far fa-dot-circle"></i></label>
                     <div>
-                        <input type="text" id="from" placeholder="Origin" class="form-control">
+                        <input type="text" id="from" placeholder="Origin" class="form-control" required>
                     </div>
-               </div>
-               <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label for="to" class="col-xs-2 control-label"><i class="fas fa-map-marker-alt"></i></label>
                     <div class="col-xs-4">
-                        <input type="text" id="to" placeholder="Destination" class="form-control">
+                        <input type="text" id="to" placeholder="Destination" class="form-control" required>
                     </div>
-                 </div>
+                </div>
             </form>
 
             <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-info btn-lg" onclick="calcRoute();"><i class="fas fa-map-signs"></i> Calculate</button>
+                <button class="btn btn-info btn-lg" onclick="calcRoute();"><i class="fas fa-map-signs"></i>
+                    Calculate</button>
             </div>
         </div>
         <div class="container-fluid">
@@ -38,13 +50,16 @@
         </div>
     </div>
 
+    <footer>&copy;2024 Project created by Elena, Jack and Oleg. </footer>
+
     <!-- Google Maps JavaScript API script -->
     <script>
         function initMap() {
-            var myLatLng = { lat: 51.509865, lng: -0.118092 };
+            // var myLatLng = { lat: 51.509865, lng: -0.118092 }; changed for better view of UK
+            var myLatLng = { lat: 53.0, lng: -3.2765753 };
             var mapOptions = {
                 center: myLatLng,
-                zoom: 7,
+                zoom: 6,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
@@ -78,4 +93,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=[!!!]&callback=initMap" async defer></script>
 </body>
+
 </html>
