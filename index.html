@@ -21,11 +21,14 @@
 
     <div class="container-fluid">
         <h1>UK Tourist Journey</h1>
-        <p>Insert a place you would like to visit</p>
+        <h2>Plan your route here</h2>
     </div>
 
     <div class="container">
         <div class="search-container">
+            <label for="from"><i class="far fa-dot-circle"></i> Origin:</label><br>
+            <input type="text" id="from" placeholder="Origin" class="form-control"><br>
+            <label for="to"><i class="fas fa-map-marker-alt"></i> Destination:</label><br>
             <input type="text" id="to" placeholder="Destination" class="form-control">
             <button class="btn" onclick="calcRoute();" required><i class="fas fa-map-signs"></i> Search</button>
         </div>
@@ -77,7 +80,6 @@
             <button class="btn" onclick="calcRoute();"><i class="fas fa-map-signs"></i> Calculate</button>
         </div>
     </div>
-
 
     <div id="googleMap"></div>
     <div id="output"></div>
