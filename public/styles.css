@@ -1,4 +1,154 @@
 body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #eff0f3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure the body takes up at least the height of the viewport */
+}
+
+h1 {
+    font-size: 40px;
+}
+
+nav {
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: right;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #7fbfff;
+    opacity: 80%;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px;
+    margin-left: 40px;
+    /* margin-top: -10px; */
+    /* float: left; */
+}
+
+.container-fluid {
+    margin-left: 40px;
+    margin-top: -35px
+}
+
+.container-fluid h1 {
+    color: #0077cc;
+}
+
+.search-container {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+
+.form-control {
+    padding: 10px;
+    width: 250px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #7fbfff;
+}
+
+#search-results {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-google {
+
+    margin-top: -285px;
+    margin-left: 530px;
+}
+
+#googleMap {
+    background-color: #7fbfff;
+    /* Just for showing where the map is, you can remove this if not needed */
+    max-width: 850px;
+    width: 100%;
+    height: 445px;
+    margin-top: 20px;
+}
+
+#output {
+    background-color: #0077cc;
+    max-width: 600px;
+    width: 100%;
+    /* Adjusts the map width to be responsive within the container */
+    margin: 20px auto;
+}
+
+.alert-info,
+.alert-danger {
+    padding: 10px;
+    color: #00529B;
+    background-color: #BDE5F8;
+    margin-top: 10px;
+}
+
+.alert-danger {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+footer {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 15px;
+    width: 100%;
+    /* position: absolute; */
+    bottom: 0;
+}
+
+
+
+/* FIRST CODE CSS STYLES */
+/* body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -99,4 +249,4 @@ footer {
     text-align: center;
     padding: 10px 0;
     width: 100%;
-}
+} */

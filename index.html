@@ -11,6 +11,55 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <h1>UK Tourist Journey</h1>
+        <h2>Plan your route here</h2>
+    </div>
+
+    <div class="container">
+        <div class="search-container">
+            <label for="from"><i class="far fa-dot-circle"></i> Origin:</label><br>
+            <input type="text" id="from" placeholder="Origin" class="form-control"><br>
+            <label for="to"><i class="fas fa-map-marker-alt"></i> Destination:</label><br>
+            <input type="text" id="to" placeholder="Destination" class="form-control">
+            <button class="btn" onclick="calcRoute();" required><i class="fas fa-map-signs"></i> Search</button>
+        </div>
+    </div>
+
+    <section class="map-google">
+        <div id="googleMap"></div>
+        <div id="output"></div>
+    </section>
+
+    <footer>&copy;2024 Project created by Elena, Jack, and Oleg.</footer>
+
+    <script src="./public/main.js"></script>
+</body>
+
+</html>
+
+<!-- FIRST ORIGINAL VERSION OF CODE -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Tourist Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+
+<body>
     <header>
         <nav>
             <ul>
@@ -40,4 +89,4 @@
     <script src="./public/main.js"></script>
 </body>
 
-</html>
+</html> -->
