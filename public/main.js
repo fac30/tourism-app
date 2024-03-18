@@ -21,7 +21,7 @@ async function calcRoute() {
         travelMode: 'DRIVING'
     };
 
-    directionsService.route(request, function(result, status) {
+    directionsService.route(request, function (result, status) {
         if (status === 'OK') {
             directionsRenderer.setDirections(result);
             const route = result.routes[0].legs[0];
@@ -34,18 +34,18 @@ async function calcRoute() {
 
 async function loadGoogleMapsAPI() {
     try {
-      const response = await fetch('http://localhost:3000/api/maps-api-key');
-      const data = await response.json();
-      const apiKey = data.apiKey;
-  
-      var script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
+        const response = await fetch('http://localhost:3000/api/maps-api-key');
+        const data = await response.json();
+        const apiKey = data.apiKey;
+
+        var script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
     } catch (error) {
-      console.error("Failed to load the Google Maps API key.", error);
+        console.error("Failed to load the Google Maps API key.", error);
     }
-  }
+}
 
 loadGoogleMapsAPI();
