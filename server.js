@@ -12,10 +12,6 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('/', (req, res) => {
-//     res.render()
-// })
-
 app.get('/api/maps-api-key', (req, res) => {
     res.json({ apiKey: process.env.GOOGLE_MAPS_API_KEY });
 });
