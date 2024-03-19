@@ -1,4 +1,4 @@
-let directionsService, directionsRenderer;
+let map, directionsService, directionsRenderer;
 
 function initMap() {
     directionsService = new google.maps.DirectionsService();
