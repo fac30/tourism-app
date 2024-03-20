@@ -11,11 +11,16 @@
 </head>
 
 <body>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
     <nav>
         <ul>
             <li><a href="#">HOME</a></li>
             <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <!-- <li><a href="#">CONTACT</a></li> -->
         </ul>
     </nav>
 
@@ -45,48 +50,3 @@
 </body>
 
 </html>
-
-<!-- FIRST ORIGINAL VERSION OF CODE -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Tourist Journey</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
-                <li><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <h1>Find The Distance Between Two Places</h1>
-        <p>This App Will Help You Calculate Your Travelling Distances and Show the Route on the Map.</p>
-        <div>
-            <label for="from"><i class="far fa-dot-circle"></i> Origin:</label>
-            <input type="text" id="from" placeholder="Origin" class="form-control">
-            <label for="to"><i class="fas fa-map-marker-alt"></i> Destination:</label>
-            <input type="text" id="to" placeholder="Destination" class="form-control">
-            <button class="btn" onclick="calcRoute();"><i class="fas fa-map-signs"></i> Calculate</button>
-        </div>
-    </div>
-
-    <div id="googleMap"></div>
-    <div id="output"></div>
-
-    <footer>&copy;2024 Project created by Elena, Jack, and Oleg.</footer>
-
-    <script src="./public/main.js"></script>
-</body>
-
-</html> -->
