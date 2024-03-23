@@ -35,11 +35,12 @@ nav ul li {
 }
 
 nav ul li a {
+    display: inline-block;
     color: #0077cc;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px;
-    margin-top: 10px;
+    padding: 5px 10px;
+    /* margin-top: 10px; */
     border-radius: 5px;
     font-size: 18px;
     transition: all 0.3s ease;
@@ -102,6 +103,24 @@ nav ul li a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#touristic-places {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    height: 300px;
+    margin-left: 0;
+}
+
+#touristic-places h2 {
+    margin-top: 0;
+    /* Remove default margin from the heading */
+}
+
+
 .map-google {
 
     margin-top: -285px;
@@ -115,7 +134,9 @@ nav ul li a:hover {
     width: 100%;
     height: 445px;
     margin-top: 20px;
+    position: relative;
 }
+
 
 #output {
     background-color: #0077cc;
@@ -265,111 +286,8 @@ footer {
         max-width: 90%;
     }
 
+
     footer {
         position: static;
     }
 }
-
-/* FIRST CODE CSS STYLES */
-/* body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #eff0f3;
-}
-
-header {
-    text-align: center;
-    padding: 20px 0;
-}
-
-nav {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #0077cc;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 30px;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background-color: #7fbfff;
-    opacity: 80%;
-    color: #fff;
-}
-
-.container-fluid {
-    max-width: 600px;
-    margin: auto;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #0077cc;
-    text-align: center;
-}
-
-.form-control {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.btn {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #0077cc;
-    color: #fff;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #7fbfff;
-}
-
-#googleMap {
-    max-width: 850px;
-    width: 100%;
-    height: 500px;
-    margin: 20px auto;
-}
-
-footer {
-    color: #000;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-} */
