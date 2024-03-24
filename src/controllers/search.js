@@ -1,3 +1,10 @@
+const { axios } = require('axios');
+const express = require('express');
+require('dotenv').config();
+
+const app = express();
+
+const apiKey = process.env
 
 // this is the google Dynamic import methods for API reccomended by the google documentation
 
@@ -58,3 +65,5 @@ async function searchPlace() {
         console.log('No results');
     }
 }
+
+app.get('/')
