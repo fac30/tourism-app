@@ -15,10 +15,20 @@ const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // a revised version of init map in conjunction with the dynamic import method
 
-let map;
 
-async function initMap() {
+// async function initMap() {
+//     const {Map} = await google.maps.importLibrary('maps'); // google dynamic import allows modular import of only the necessary api components for each function
+//     map = new Map(document.getElementById('googleMap'), {
+//         zoom: 7,
+//         center: { lat: 51.509865, lng: -0.118092 }, // Example: London
+//     });
+// }
+
+exports.initMap = async (req, res) => {
+    let map;
+
     const {Map} = await google.maps.importLibrary('maps'); // google dynamic import allows modular import of only the necessary api components for each function
+    
     map = new Map(document.getElementById('googleMap'), {
         zoom: 7,
         center: { lat: 51.509865, lng: -0.118092 }, // Example: London
