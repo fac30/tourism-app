@@ -1,10 +1,10 @@
 // const { axios } = require('axios');
 const express = require('express');
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 
-const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+// const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // this is the google Dynamic import methods for API reccomended by the google documentation
 
