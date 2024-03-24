@@ -6,8 +6,6 @@ const app = express();
 
 // const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-// this is the google Dynamic import methods for API reccomended by the google documentation
-
 // let search;
 
 // async function searchPlace() {
