@@ -5,6 +5,6 @@ const searchController = require('../controllers/search');
 const mapsAPIController = require('../controllers/googleMapsAPI');
 
 router.get('/search', searchController);
-router.get('/mapAPI', mapsAPIController);
+router.get('/mapAPI', mapsAPIController.searchMap);
 
 module.exports = router;
