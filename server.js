@@ -9,13 +9,6 @@ const corsPermissions = require('./cors'); // Import the corsPermissions middlew
 const app = express();
 const port = process.env.PORT || 3000; // Use PORT environment variable if available, otherwise default to 3000
 
-// Middleware setup
-app.use(express.json()); // Parse JSON bodies in requests
-
-
-// Serve static files from the public directory
-// app.use(express.static('public'));
-
 
 const corsOptions = {
     origin: 'http://127.0.0.1:3000',
@@ -63,7 +56,7 @@ app.get('/places', async (req, res) => {
     const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
     // Construct the URL for the Google Places API request
-    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.1804488%2C-122.7851227&radius=1500&key=${apiKey}`;
+    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&key=${apiKey}`;
 
     try {
         // Fetch data from Google Places API using Axios
@@ -74,6 +67,33 @@ app.get('/places', async (req, res) => {
         // Handle errors, e.g., if the API request fails
         console.error('Error fetching places data:', error);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
+// Define endpoint to fetch coordinates using Google Geocoding API
+app.get('/api/geocode', async (req, res) => {
+    try {
+        const location = req.query.location;
+        const apiKey = process.env.GOOGLE_MAPS_API_KEY; // Fetch the API key from environment variables
+
+        // Construct the URL for the Google Geocoding API request
+        const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${apiKey}`;
+
+        // Make a GET request to the Google Geocoding API
+        const response = await axios.get(apiUrl);
+
+        // Extract latitude and longitude from the API response
+        const data = response.data;
+        if (data.status === "OK") {
+            const { lat, lng } = data.results[0].geometry.location;
+            res.json({ lat, lng }); // Send the coordinates as JSON in the response
+        } else {
+            res.status(400).json({ error: "Geocoding API request failed" });
+        }
+    } catch (error) {
+        console.error("Failed to fetch coordinates:", error);
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 

@@ -9,6 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Function to handle search button click and display output section
+document.addEventListener("DOMContentLoaded", function () {
+    const searchButton = document.querySelector('.btn');
+    const outputSection = document.getElementById('output');
+
+    searchButton.addEventListener('click', function () {
+        outputSection.style.display = 'block'; // Show the output section when search button is clicked
+    });
+});
+
 // Define global variables for map and directions
 let map, directionsService, directionsRenderer;
 
@@ -64,34 +74,6 @@ async function loadGoogleMapsAPI() {
     }
 }
 
-// Define function to get coordinates by location using Google Geocoding API
-async function getCoordinatesByLocation(location) {
-    try {
-        // Fetch Google Maps API key
-        const response = await fetch('http://localhost:3000/api/maps-api-key');
-        const data = await response.json();
-        const apiKey = data.apiKey;
-
-        // Fetch coordinates using Geocoding API
-        console.log("Fetching coordinates for:", location);
-        const response1 = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${apiKey}`);
-        const data1 = await response1.json();
-
-        // Check if response is OK
-        if (data1.status === "OK") {
-            // Extract latitude and longitude from response
-            const { lat, lng } = data1.results[0].geometry.location;
-            console.log("Coordinates:", lat, lng);
-            return { lat, lng }; // Return coordinates as an object
-        } else {
-            console.error("Geocoding API request failed:", data1.status);
-            throw new Error("Geocoding API request failed");
-        }
-    } catch (error) {
-        console.error("Failed to get coordinates by location:", error);
-        return null; // Return null if there's an error
-    }
-}
 
 // Function to fetch nearby places
 async function fetchNearbyPlaces(location, radius) {
@@ -105,9 +87,10 @@ async function fetchNearbyPlaces(location, radius) {
         const coordinates = await getCoordinatesByLocation(location);
         if (!coordinates) return; // If coordinates are null, exit the function
 
-        // Construct the request URL with latitude and longitude
+        // Construct the request URL with latitude, longitude, types, and other parameters
         const { lat, lng } = coordinates;
         console.log("Latitude:", lat, "Longitude:", lng);
+
 
         // Append a unique parameter to bypass caching
         const uniqueParam = new Date().getTime(); // Current timestamp
@@ -142,6 +125,25 @@ async function fetchNearbyPlaces(location, radius) {
     }
 }
 
+// Define function to get coordinates by location using server-side endpoint
+async function getCoordinatesByLocation(location) {
+    try {
+        // Make a request to the server-side endpoint to fetch coordinates
+        const response = await fetch(`http://localhost:3000/api/geocode?location=${encodeURIComponent(location)}`);
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Coordinates:", data.lat, data.lng);
+            return { lat: data.lat, lng: data.lng }; // Return coordinates as an object
+        } else {
+            console.error("Failed to fetch coordinates:", data.error);
+            throw new Error("Failed to fetch coordinates");
+        }
+    } catch (error) {
+        console.error("Failed to get coordinates by location:", error);
+        return null; // Return null if there's an error
+    }
+}
 
 
 // Function to calculate route and fetch nearby places
