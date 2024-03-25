@@ -9,8 +9,13 @@ const corsPermissions = require('./cors'); // Import the corsPermissions middlew
 const app = express();
 const port = process.env.PORT || 3000; // Use PORT environment variable if available, otherwise default to 3000
 
+// Middleware setup
+app.use(express.json()); // Parse JSON bodies in requests
+
+
 // Serve static files from the public directory
-app.use(express.static('public'));
+// app.use(express.static('public'));
+
 
 const corsOptions = {
     origin: 'http://127.0.0.1:3000',
@@ -49,25 +54,29 @@ app.post('/calculate-route', cors(corsOptions), async (req, res) => {
     }
 });
 
-// Route for fetching nearby places based on location
-app.get('/api/places', async (req, res) => {
-    // Extract location, radius, type, and key from query parameters
-    const { location, radius, type } = req.query;
+// Endpoint to fetch places of interest
+app.get('/places', async (req, res) => {
+    // Get query parameters from the request, e.g., location, radius, etc.
+    const { location, radius } = req.query;
+
+    // Retrieve Google Maps API key from environment variables
     const apiKey = process.env.GOOGLE_MAPS_API_KEY;
-    // Construct API URL for nearby places search
-    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=${type}&key=${apiKey}`;
+
+    // Construct the URL for the Google Places API request
+    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.1804488%2C-122.7851227&radius=1500&key=${apiKey}`;
 
     try {
-        // Make a GET request to Google Places API using Axios
+        // Fetch data from Google Places API using Axios
         const response = await axios.get(apiUrl);
-        // Send the fetched data back as JSON response
-        res.json(response.data);
+        const placesData = response.data;
+        res.json(placesData); // Respond to HTTP request with JSON data
     } catch (error) {
-        // Handle errors if request fails
-        console.error('Error fetching places:', error);
-        res.status(500).json({ error: 'Failed to fetch places' });
+        // Handle errors, e.g., if the API request fails
+        console.error('Error fetching places data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 // Start the server and listen on the specified port
 app.listen(port, () => {
