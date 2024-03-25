@@ -6,90 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UK Tourist Journey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style>
-        /* Add your CSS styling here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        .container-fluid {
-            max-width: 600px;
-            margin: auto;
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        .form-control,
-        .btn {
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            /* Makes the width adapt to the parent container */
-            box-sizing: border-box;
-            /* Includes padding in the element's total width */
-        }
-
-        #googleMap {
-            max-width: 600px;
-            width: 100%;
-            /* Adjusts the map width to be responsive within the container */
-            height: 400px;
-            margin: 20px auto;
-        }
-
-        #output {
-            max-width: 600px;
-            width: 100%;
-            /* Adjusts the map width to be responsive within the container */
-            margin: 20px auto;
-        }
-
-        .alert-info,
-        .alert-danger {
-            padding: 10px;
-            color: #00529B;
-            background-color: #BDE5F8;
-            margin-top: 10px;
-        }
-
-        .alert-danger {
-            color: #D8000C;
-            background-color: #FFBABA;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
-                <li><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="https://github.com/fac30/tourism-app" target="_blank">ABOUT</a></li>
+        </ul>
+    </nav>
+
     <div class="container-fluid">
-        <h1>Find The Distance Between Two Places</h1>
-        <p>This App Will Help You Calculate Your Travelling Distances and Show the Route on the Map.</p>
-        <div>
-            <label for="from"><i class="far fa-dot-circle"></i> Origin:</label>
-            <input type="text" id="from" placeholder="Origin" class="form-control">
-            <label for="to"><i class="fas fa-map-marker-alt"></i> Destination:</label>
-            <input type="text" id="to" placeholder="Destination" class="form-control">
-            <button class="btn" onclick="calcRoute();"><i class="fas fa-map-signs"></i> Calculate</button>
-        </div>
-
+        <h1>UK Tourist Journey</h1>
+        <h2>Plan your route here</h2>
     </div>
-    <div id="googleMap"></div>
-    <div id="output"></div>
 
-    <footer>&copy;2024 Project created by Elena, Jack and Oleg. </footer>
+    <div class="container">
+        <div class="search-container">
+            <label for="from"><i class="far fa-dot-circle"></i> Origin:</label><br>
+            <input type="text" id="from" placeholder="Origin" class="form-control"><br>
+            <label for="to"><i class="fas fa-map-marker-alt"></i> Destination:</label><br>
+            <input type="text" id="to" placeholder="Destination" class="form-control">
+            <button class="btn" onclick="calculateRouteAndDisplayTouristicPlaces();"><i class="fas fa-map-signs"></i>
+                Search</button>
+        </div>
+        <section id="touristic-places" style="display: none;">
+            <p>Tourist Attractions along the route:</p>
+            <ul id="touristic-places-list">
+                <!-- List items for nearby places will be dynamically added here -->
+            </ul>
+        </section>
+    </div>
+    <section class="map-google">
+        <div id="output"></div>
+        <div id="googleMap"></div>
 
-    <script src="./main.js"></script>
+    </section>
+
+    <footer>&copy;2024 Project created by Elena, Jack, and Oleg.</footer>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
