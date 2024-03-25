@@ -9,7 +9,8 @@ Tourism App is a collaborative project developed by Elena, Jack, and Oleg. The a
 ---
 
 [![Homepage](/public/images/homepage.png)
-[![Homepage](/public/images/distance-matrix.png)
+[![Distance](/public/images/distance-matrix.png)
+[![Places List](/public/images/places-list.png)
 
 ## Project Structure
 
@@ -67,6 +68,38 @@ Once installed, you can start using the Tourism App by following these steps:
 
 ---
 
+## Accessibility
+
+[![Accessibility](/public/images/accessibility-lighthouse.png)
+
+The Tourism App prioritizes accessibility to ensure that all users, including those with disabilities, can access and use the application. Here are some accessibility features implemented:
+
+- **Semantic HTML Elements**: The application uses semantic HTML elements like `<nav>`, `<button>`, and `<section>` to provide clear structure and meaning for screen readers.
+- **Descriptive Alt Attributes**: All images in the application have descriptive `alt` attributes that provide context and information about the image content. For example:
+
+  ```html
+  <img
+    src="image.jpg"
+    alt="Illustration of tourist attractions along the route"
+  />
+  ```
+
+- **Color Contrast**: The color scheme of the application ensures sufficient contrast between text and background colors to enhance readability, adhering to WCAG guidelines.
+
+- **Keyboard Navigation**: Users can navigate through the application using only keyboard inputs, ensuring accessibility for users who cannot use a mouse.
+
+- **ARIA Labels and Roles**
+
+ARIA labels and roles are used to enhance accessibility for assistive technologies. For example, interactive elements like buttons include an `aria-label` attribute:
+
+```html
+<button aria-label="Search for tourist attractions">Search</button>
+```
+
+The application has been tested using Lighthouse checks and achieves 100% compliance with accessibility standards.
+
+---
+
 ## Endpoints
 
 The Tourism App provides the following endpoints for interaction:
@@ -93,5 +126,3 @@ The Tourism App provides the following endpoints for interaction:
 ---
 
 Thank you for considering the Tourism App!
-
-<!-- <img width="1000" alt="Screenshot 2024-03-17 at 12 58 41" src="https://github.com/fac30/tourism-app/assets/113034133/c23a7e17-56c1-422b-a60e-eefd0ece091b"> -->
