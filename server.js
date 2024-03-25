@@ -6,19 +6,23 @@ const express = require('express');
 const axios = require('axios'); // For making HTTP requests
 const cors = require('cors'); // Import the cors middleware
 const corsPermissions = require('./cors'); // Import the corsPermissions middleware
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000; // Use PORT environment variable if available, otherwise default to 3000
-
 
 const corsOptions = {
     origin: 'http://127.0.0.1:3000',
     optionsSuccessStatus: 200
 }
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Middleware setup
 app.use(cors()); // Enable CORS for all routes
 app.use(corsPermissions.permission); // Use the corsPermissions middleware
 app.use(express.json()); // Parse JSON bodies in requests
+
+// Route handling for other routes
 
 
 // Route for retrieving Google Maps API key
