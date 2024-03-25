@@ -1,5 +1,4 @@
 body {
-
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #eff0f3;
     margin: 0;
@@ -7,13 +6,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ensure the body takes up at least the height of the viewport */
 }
 
+/* Typography */
 h1 {
     font-size: 40px;
 }
 
+/* Navigation */
 .menu-toggle {
     display: none;
 }
@@ -35,11 +35,11 @@ nav ul li {
 }
 
 nav ul li a {
+    display: inline-block;
     color: #0077cc;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px;
-    margin-top: 10px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-size: 18px;
     transition: all 0.3s ease;
@@ -51,16 +51,16 @@ nav ul li a:hover {
     color: #fff;
 }
 
+/* Layout */
 .container {
-    max-width: 800px;
+    max-width: 500px;
     margin: 20px;
     margin-left: 40px;
 }
 
-
 .container-fluid {
     margin-left: 40px;
-    margin-top: -35px
+    margin-top: -35px;
 }
 
 .container-fluid h1 {
@@ -73,6 +73,7 @@ nav ul li a:hover {
     margin-top: -20px;
 }
 
+/* Form Elements */
 .form-control {
     padding: 10px;
     width: 250px;
@@ -95,6 +96,7 @@ nav ul li a:hover {
     background-color: #7fbfff;
 }
 
+/* Search Results */
 #search-results {
     background-color: #f9f9f9;
     padding: 20px;
@@ -102,24 +104,100 @@ nav ul li a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.map-google {
+#output {
+    display: none;
+    background-color: #0077cc;
+    color: #fff;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    margin: 5px auto;
+    top: -210px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    margin-top: -285px;
+
+.alert-info,
+.alert-danger {
+    padding: 10px;
+    color: #fff;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+}
+
+
+.alert-info {
+    background-color: #0077cc;
+}
+
+.alert-danger {
+    background-color: #ff4d4d;
+}
+
+
+/* Google Map */
+.map-google {
+    margin-top: -290px;
     margin-left: 530px;
 }
 
 #googleMap {
     background-color: rgba(139, 197, 255, 0.5);
-    /* Just for showing where the map is, you can remove this if not needed */
     max-width: 850px;
     width: 100%;
     height: 445px;
-    margin-top: 20px;
+    margin-top: -20px;
+    position: relative;
 }
 
+.map-google.map-fixed {
+    position: fixed;
+    margin-top: 0;
+    top: -1200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 320px;
+    z-index: 1;
+}
+
+/* Nearby Places */
+.nearby-place {
+    background-color: #0077cc;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Touristic Places */
+#touristic-places {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    height: 300px;
+    overflow-y: auto;
+    margin-left: 0;
+}
+
+#touristic-places ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 
 #output {
     background-color: #0077cc;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     margin: 20px auto;
 }
@@ -135,8 +213,9 @@ nav ul li a:hover {
 .alert-danger {
     color: #D8000C;
     background-color: #FFBABA;
-}
+} */
 
+/* Footer */
 footer {
     background-color: #f9f9f9;
     padding: 10px;
@@ -147,13 +226,10 @@ footer {
     bottom: 0;
 }
 
-/* MEDIA QUERIES  */
-/* Regular styles */
-
+/* Media Queries */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-
     .menu-toggle {
-        display: none;
+        display: hidden;
         background: none;
         border: none;
         cursor: pointer;
@@ -197,7 +273,6 @@ footer {
     nav ul li a {
         font-size: 15px;
         margin-right: 0;
-
     }
 
     nav.collapsed ul {
@@ -224,13 +299,11 @@ footer {
 
     .container-fluid {
         margin-top: -25px;
-
     }
 
     .container-fluid h1 {
         font-size: 30px;
     }
-
 
     .search-container {
         margin-top: -10px;
@@ -240,13 +313,19 @@ footer {
 
     .form-control {
         width: 100%;
-
     }
 
     .btn {
         width: 50%;
         margin-left: 100px;
         margin-top: 20px;
+    }
+
+
+    #output {
+        margin-top: auto;
+        margin-left: -80px;
+        width: 100%;
     }
 
     .map-google {
@@ -261,115 +340,24 @@ footer {
         margin-left: -50px;
     }
 
-    #output {
-        max-width: 90%;
+    .nearby-place {
+        background-color: #0077cc;
+        padding: 5px 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
     }
 
-    footer {
-        position: static;
+    #touristic-places {
+        max-width: 250px;
+        margin-left: 0;
     }
-}
 
-/* FIRST CODE CSS STYLES */
-/* body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #eff0f3;
-}
+    #touristic-places ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-header {
-    text-align: center;
-    padding: 20px 0;
 }
-
-nav {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -20px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #0077cc;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 30px;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background-color: #7fbfff;
-    opacity: 80%;
-    color: #fff;
-}
-
-.container-fluid {
-    max-width: 600px;
-    margin: auto;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #0077cc;
-    text-align: center;
-}
-
-.form-control {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.btn {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #0077cc;
-    color: #fff;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #7fbfff;
-}
-
-#googleMap {
-    max-width: 850px;
-    width: 100%;
-    height: 500px;
-    margin: 20px auto;
-}
-
-footer {
-    color: #000;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-} */
