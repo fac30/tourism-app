@@ -110,9 +110,9 @@ nav ul li a:hover {
     color: #fff;
     padding: 20px;
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     margin: 5px auto;
-    top: -210px;
+    top: -25px;
     position: relative;
     z-index: 1;
     margin-bottom: 0;
@@ -147,6 +147,7 @@ nav ul li a:hover {
 
 #googleMap {
     background-color: rgba(139, 197, 255, 0.5);
+    /* just for testing purposes */
     max-width: 850px;
     width: 100%;
     height: 445px;
@@ -194,27 +195,6 @@ nav ul li a:hover {
     margin: 0;
 }
 
-/* 
-#output {
-    background-color: #0077cc;
-    max-width: 500px;
-    width: 100%;
-    margin: 20px auto;
-}
-
-.alert-info,
-.alert-danger {
-    padding: 10px;
-    color: #00529B;
-    background-color: #BDE5F8;
-    margin-top: 10px;
-}
-
-.alert-danger {
-    color: #D8000C;
-    background-color: #FFBABA;
-} */
-
 /* Footer */
 footer {
     background-color: #f9f9f9;
@@ -226,10 +206,13 @@ footer {
     bottom: 0;
 }
 
+
 /* Media Queries */
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens (tablet and phone) */
+
     .menu-toggle {
-        display: hidden;
+        display: block;
         background: none;
         border: none;
         cursor: pointer;
@@ -287,10 +270,6 @@ footer {
         margin: 0;
     }
 
-    .menu-toggle {
-        display: block;
-    }
-
     .container {
         max-width: 90%;
         margin: 10px auto;
@@ -320,7 +299,6 @@ footer {
         margin-left: 100px;
         margin-top: 20px;
     }
-
 
     #output {
         margin-top: auto;
@@ -359,5 +337,58 @@ footer {
         padding: 0;
         margin: 0;
     }
+}
 
+@media screen and (max-width: 480px) {
+    /* Adjustments for smaller screens (phones) */
+
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        z-index: 1000;
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 10px auto;
+        position: relative;
+    }
+
+    .search-container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    #output {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .map-google {
+        width: 100%;
+    }
+
+    #googleMap {
+        max-width: 100%;
+        height: 200px;
+        margin-left: 10px;
+
+    }
+
+    #touristic-places {
+        max-width: 90%;
+        margin: 0 auto;
+    }
 }
