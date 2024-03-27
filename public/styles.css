@@ -108,18 +108,18 @@ nav ul li a:hover {
     display: none;
     background-color: #0077cc;
     color: #fff;
-    padding: 20px;
-    max-width: 500px;
-    width: 90%;
-    margin: 5px auto;
-    top: -25px;
-    position: relative;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+    max-width: 400px;
+    width: 60%;
+    margin: 5px 50px 0 30px;
+    position: absolute;
+    top: 60px;
     z-index: 1;
-    margin-bottom: 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 .alert-info,
 .alert-danger {
@@ -129,13 +129,24 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-
 .alert-info {
     background-color: #0077cc;
 }
 
 .alert-danger {
     background-color: #ff4d4d;
+}
+
+.popup-message {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
 }
 
 
@@ -151,19 +162,24 @@ nav ul li a:hover {
     max-width: 850px;
     width: 100%;
     height: 445px;
-    margin-top: -20px;
+    margin-top: -220px;
     position: relative;
+    z-index: 1;
+    /* Ensure the map is above other elements */
 }
 
-.map-google.map-fixed {
+.map-fixed {
     position: fixed;
-    margin-top: 0;
-    top: -1200px;
+    margin-top: -150px;
     left: 50%;
     transform: translateX(-50%);
     width: 320px;
     height: 320px;
-    z-index: 1;
+    z-index: 2;
+}
+
+.map-fixed #googleMap {
+    display: none;
 }
 
 /* Nearby Places */
@@ -193,202 +209,203 @@ nav ul li a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-/* Footer */
-footer {
-    background-color: #f9f9f9;
-    padding: 10px;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: 15px;
-    width: 100%;
-    bottom: 0;
-}
 
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    /* Adjustments for smaller screens (tablet and phone) */
-
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
+    /* Footer */
+    footer {
+        background-color: #f9f9f9;
         padding: 10px;
-        position: absolute;
-        top: 1em;
-        right: 1em;
-        z-index: 1000;
-    }
-
-    .menu-toggle:hover {
-        background: #BDE5F8;
-    }
-
-    .menu-toggle .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #0077cc;
-        margin: 5px 0;
-        transition: 0.4s;
-    }
-
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    nav ul {
-        display: none;
-        width: 100%;
-    }
-
-    nav ul li a {
-        font-size: 15px;
-        margin-right: 0;
-    }
-
-    nav.collapsed ul {
-        display: flex;
-        flex-direction: column;
-        margin-top: 45px;
-    }
-
-    nav a {
-        display: block;
-        padding: 10px;
-        margin: 0;
-    }
-
-    .container {
-        max-width: 90%;
-        margin: 10px auto;
-        position: relative;
-    }
-
-    .container-fluid {
-        margin-top: -25px;
-    }
-
-    .container-fluid h1 {
-        font-size: 30px;
-    }
-
-    .search-container {
-        margin-top: -10px;
-        width: 80%;
-        margin-left: 40px;
-    }
-
-    .form-control {
-        width: 100%;
-    }
-
-    .btn {
-        width: 50%;
-        margin-left: 100px;
-        margin-top: 20px;
-    }
-
-    #output {
+        text-align: center;
         margin-top: auto;
-        margin-left: -80px;
+        margin-bottom: 15px;
         width: 100%;
+        bottom: 0;
     }
 
-    .map-google {
-        margin-top: auto;
-        margin-left: auto;
-        width: 80%;
+    /* TO BE ADJUSTED!!! */
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+        /* Adjustments for smaller screens (tablet and phone) */
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            z-index: 1000;
+        }
+
+        .menu-toggle:hover {
+            background: #BDE5F8;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #0077cc;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        nav ul {
+            display: none;
+            width: 100%;
+        }
+
+        nav ul li a {
+            font-size: 15px;
+            margin-right: 0;
+        }
+
+        nav.collapsed ul {
+            display: flex;
+            flex-direction: column;
+            margin-top: 45px;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .container-fluid {
+            margin-top: -25px;
+        }
+
+        .container-fluid h1 {
+            font-size: 30px;
+        }
+
+        .search-container {
+            margin-top: -10px;
+            width: 80%;
+            margin-left: 40px;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .btn {
+            width: 50%;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+
+        #output {
+            margin-top: auto;
+            margin-left: -80px;
+            width: 100%;
+        }
+
+        .map-google {
+            margin-top: auto;
+            margin-left: auto;
+            width: 80%;
+        }
+
+        #googleMap {
+            max-width: 100%;
+            height: 300px;
+            margin-left: -50px;
+        }
+
+        .nearby-place {
+            background-color: #0077cc;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #touristic-places {
+            max-width: 250px;
+            margin-left: 0;
+        }
+
+        #touristic-places ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
     }
 
-    #googleMap {
-        max-width: 100%;
-        height: 300px;
-        margin-left: -50px;
+
+    @media screen and (max-width: 480px) {
+        /* Adjustments for smaller screens (phones) */
+
+        .menu-toggle {
+            display: block;
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .search-container {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .btn {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        #output {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        .map-google {
+            width: 100%;
+        }
+
+        #googleMap {
+            max-width: 100%;
+            height: 200px;
+            margin-left: 10px;
+
+        }
+
+        #touristic-places {
+            max-width: 90%;
+            margin: 0 auto;
+        }
     }
-
-    .nearby-place {
-        background-color: #0077cc;
-        padding: 5px 10px;
-        margin: 5px 0;
-        border-radius: 5px;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    #touristic-places {
-        max-width: 250px;
-        margin-left: 0;
-    }
-
-    #touristic-places ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* Adjustments for smaller screens (phones) */
-
-    .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 1em;
-        right: 1em;
-        z-index: 1000;
-    }
-
-    .container {
-        max-width: 90%;
-        margin: 10px auto;
-        position: relative;
-    }
-
-    .search-container {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .form-control {
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    #output {
-        width: 90%;
-        margin: 10px auto;
-    }
-
-    .map-google {
-        width: 100%;
-    }
-
-    #googleMap {
-        max-width: 100%;
-        height: 200px;
-        margin-left: 10px;
-
-    }
-
-    #touristic-places {
-        max-width: 90%;
-        margin: 0 auto;
-    }
-}
