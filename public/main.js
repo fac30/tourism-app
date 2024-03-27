@@ -13,9 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.querySelector('.btn');
     const outputSection = document.getElementById('output');
+    const touristicPlacesList = document.getElementById('touristic-places-list');
 
-    searchButton.addEventListener('click', function () {
+    searchButton.addEventListener('click', async function () {
         outputSection.style.display = 'block'; // Show the output section when search button is clicked
+
+        // Call function to calculate route and fetch nearby places
+        await calculateRouteAndDisplayTouristicPlaces();
+
+        // Show only the touristic-places-list after places are fetched
+        touristicPlacesList.style.display = 'block';
     });
 });
 
@@ -75,7 +82,6 @@ async function loadGoogleMapsAPI() {
 }
 
 
-// Function to fetch nearby places
 async function fetchNearbyPlaces(location, radius) {
     try {
         // Add class to map container
@@ -90,7 +96,6 @@ async function fetchNearbyPlaces(location, radius) {
         // Construct the request URL with latitude, longitude, types, and other parameters
         const { lat, lng } = coordinates;
         console.log("Latitude:", lat, "Longitude:", lng);
-
 
         // Append a unique parameter to bypass caching
         const uniqueParam = new Date().getTime(); // Current timestamp
@@ -112,11 +117,25 @@ async function fetchNearbyPlaces(location, radius) {
             listItem.textContent = place.name;
             listItem.classList.add("nearby-place"); // Add nearby-place class
             placesList.appendChild(listItem);
+
+            listItem.addEventListener("click", function () {
+                // Create a popup message
+                const popupMessage = document.createElement('div');
+                popupMessage.classList.add('popup-message');
+                popupMessage.textContent = `For more info about ${place.name}, click here`;
+
+                // Append the popup message as a child of the clicked list item
+                listItem.appendChild(popupMessage);
+
+                // Remove the popup message after 3 seconds
+                setTimeout(function () {
+                    popupMessage.remove();
+                }, 3000);
+            });
         });
 
         // Show the touristic-places section
         document.getElementById("touristic-places").style.display = "block";
-
     } catch (error) {
         console.error("Failed to fetch nearby places:", error);
         // Handle error, e.g., show a message to the user
@@ -124,6 +143,12 @@ async function fetchNearbyPlaces(location, radius) {
         throw error;
     }
 }
+
+
+// Call function to fetch nearby places after its definition
+fetchNearbyPlaces("London", 10000); // Example call with default location and radius
+// fetchNearbyPlaces(location, radius);
+
 
 // Define function to get coordinates by location using server-side endpoint
 async function getCoordinatesByLocation(location) {

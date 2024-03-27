@@ -1,11 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #eff0f3;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* Main content */
+main {
+    flex: 1;
+    /* Allow main content to grow to fill remaining space */
 }
 
 /* Typography */
@@ -108,18 +116,18 @@ nav ul li a:hover {
     display: none;
     background-color: #0077cc;
     color: #fff;
-    padding: 20px;
-    max-width: 500px;
-    width: 90%;
-    margin: 5px auto;
-    top: -25px;
-    position: relative;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+    max-width: 400px;
+    width: 60%;
+    margin: 5px 50px 0 30px;
+    position: absolute;
+    top: 60px;
     z-index: 1;
-    margin-bottom: 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 .alert-info,
 .alert-danger {
@@ -129,7 +137,6 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-
 .alert-info {
     background-color: #0077cc;
 }
@@ -138,12 +145,25 @@ nav ul li a:hover {
     background-color: #ff4d4d;
 }
 
+.popup-message {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
 
 /* Google Map */
 .map-google {
-    margin-top: -290px;
-    margin-left: 530px;
+    margin-top: -400px;
+    margin-left: 500px;
 }
+
 
 #googleMap {
     background-color: rgba(139, 197, 255, 0.5);
@@ -151,19 +171,24 @@ nav ul li a:hover {
     max-width: 850px;
     width: 100%;
     height: 445px;
-    margin-top: -20px;
+    margin-top: -220px;
     position: relative;
+    z-index: 1;
+    /* Ensure the map is above other elements */
 }
 
-.map-google.map-fixed {
+.map-fixed {
     position: fixed;
-    margin-top: 0;
-    top: -1200px;
+    margin-top: -150px;
     left: 50%;
     transform: translateX(-50%);
     width: 320px;
     height: 320px;
-    z-index: 1;
+    z-index: 2;
+}
+
+.map-fixed #googleMap {
+    display: none;
 }
 
 /* Nearby Places */
@@ -193,20 +218,21 @@ nav ul li a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+
 }
 
 /* Footer */
-footer {
+.footer {
     background-color: #f9f9f9;
     padding: 10px;
     text-align: center;
-    margin-top: auto;
+    margin-top: 10px;
     margin-bottom: 15px;
     width: 100%;
     bottom: 0;
 }
 
-
+/* TO BE ADJUSTED!!! */
 /* Media Queries */
 @media screen and (max-width: 768px) {
     /* Adjustments for smaller screens (tablet and phone) */
@@ -313,9 +339,9 @@ footer {
     }
 
     #googleMap {
-        max-width: 100%;
+        max-width: 50%;
         height: 300px;
-        margin-left: -50px;
+        margin-left: 100px;
     }
 
     .nearby-place {
@@ -328,7 +354,7 @@ footer {
     }
 
     #touristic-places {
-        max-width: 250px;
+        max-width: 150px;
         margin-left: 0;
     }
 
@@ -337,7 +363,12 @@ footer {
         padding: 0;
         margin: 0;
     }
+
+    .footer {
+        width: 100%
+    }
 }
+
 
 @media screen and (max-width: 480px) {
     /* Adjustments for smaller screens (phones) */
