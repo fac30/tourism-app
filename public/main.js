@@ -119,7 +119,11 @@ async function fetchNearbyPlaces(location, radius) {
             placesList.appendChild(listItem);
 
             listItem.addEventListener("click", function () {
-                // Create a popup message
+                // Remove any existing popup messages
+                const existingPopupMessages = document.querySelectorAll('.popup-message');
+                existingPopupMessages.forEach(message => message.remove());
+
+                // Create a new popup message
                 const popupMessage = document.createElement('div');
                 popupMessage.classList.add('popup-message');
                 popupMessage.textContent = `For more info about ${place.name}, click here`;
