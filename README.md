@@ -8,9 +8,9 @@ Tourism App is a collaborative project developed by Elena, Jack, and Oleg. The a
 
 ---
 
-[![Homepage](/public/images/homepage.png)
-[![Distance](/public/images/distance-matrix.png)
-[![Places List](/public/images/places-list.png)
+![Homepage](/public/images/homepage.png)
+![Distance](/public/images/distance-matrix.png)
+![Places List](/public/images/places-list.png)
 
 ## Project Structure
 
@@ -68,9 +68,29 @@ Once installed, you can start using the Tourism App by following these steps:
 
 ---
 
+## Popup Message for More Information
+
+The Tourism App includes a popup message feature that provides users with the option to obtain additional information about a specific tourist attraction or point of interest. When users click on a location marker or place name, a popup message dynamically appears, inviting users to learn more by clicking on it.
+
+![Places List](/public/images/pop-up-message.png)
+
+### Functionality
+
+- **User Interaction**: Users can click on the popup message to access more detailed information about the selected location.
+
+- **Information Prompt**: The popup message serves as a prompt, inviting users to engage further with the application and explore additional content.
+
+### Purpose
+
+The primary purpose of the popup message is to encourage user engagement and facilitate information discovery within the Tourism App. By providing a clear call-to-action, users are prompted to access more information about the places they are interested in exploring.
+
+### Implementation
+
+The popup message functionality is implemented using client-side JavaScript within the Tourism App. When a user interacts with a location marker or selects a place from the list, an event listener triggers the display of the popup message. Currently, the message prompts users to click for more information, with future updates planned to integrate personalized recommendations powered by OpenAI's language model.
+
 ## Accessibility
 
-[![Accessibility](/public/images/accessibility-lighthouse.png)
+![Accessibility](/public/images/accessibility-lighthouse.png)
 
 The Tourism App prioritizes accessibility to ensure that all users, including those with disabilities, can access and use the application. Here are some accessibility features implemented:
 
@@ -125,4 +145,4 @@ The Tourism App provides the following endpoints for interaction:
 
 ---
 
-Thank you for considering the Tourism App!
+Thank you for considering the Tourism App!🧳🚗
