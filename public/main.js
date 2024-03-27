@@ -147,6 +147,7 @@ async function fetchNearbyPlaces(location, radius) {
 
 // Call function to fetch nearby places after its definition
 fetchNearbyPlaces("London", 10000); // Example call with default location and radius
+// fetchNearbyPlaces(location, radius);
 
 
 // Define function to get coordinates by location using server-side endpoint
